@@ -67,8 +67,8 @@ public class MainActivity extends Activity implements BDLocationListener, OnGetP
     private PoiSearch poiSearch;
     private List<PoiInfo> lists;
     private ListView listView;
-    private View view= null; //判断气泡是否已经创建
-    private MyAdapter myAdapter ;
+    private View view = null; //判断气泡是否已经创建
+    private MyAdapter myAdapter;
     Handler mHandler = new Handler() {
 
         @Override
@@ -111,7 +111,7 @@ public class MainActivity extends Activity implements BDLocationListener, OnGetP
         request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (view != null){
+                if (view != null) {
                     mapView.removeView(view);
                 }
                 locationClient.start();
@@ -182,22 +182,22 @@ public class MainActivity extends Activity implements BDLocationListener, OnGetP
         if (poiResult.error == SearchResult.ERRORNO.NO_ERROR) {
 
             lists = poiResult.getAllPoi();
-            myAdapter = new MyAdapter(getApplicationContext(),lists);
+            myAdapter = new MyAdapter(getApplicationContext(), lists);
             listView.setAdapter(myAdapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View contentView, int position, long id) {
-                    if (view == null){
-                        view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.map_item,null);
+                    if (view == null) {
+                        view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.map_item, null);
                         TextView tv = (TextView) view.findViewById(R.id.my_postion);
                         tv.setText(lists.get(position).name);
                         tv.setTextColor(Color.RED);
                         MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
                         MapViewLayoutParams params = builder.position(lists.get(position).location).width(WindowManager.LayoutParams.WRAP_CONTENT).height(WindowManager.LayoutParams.WRAP_CONTENT).layoutMode(MapViewLayoutParams.ELayoutMode.mapMode).build();
                         mapView.addView(view, params);
-                    }else {
+                    } else {
                         mapView.removeView(view);
-                        view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.map_item,null);
+                        view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.map_item, null);
                         TextView tv = (TextView) view.findViewById(R.id.my_postion);
                         tv.setText(lists.get(position).name);
                         tv.setTextColor(Color.RED);
@@ -206,7 +206,7 @@ public class MainActivity extends Activity implements BDLocationListener, OnGetP
                         mapView.addView(view, params);
                     }
                     initMap(lists.get(position).location);
-                    Intent intent = new Intent(MainActivity.this,Detail.class);
+                    Intent intent = new Intent(MainActivity.this, Detail.class);
 //                    Bundle bundle = new Bundle();
 //                    bundle.putDouble("latitude",lists.get(position).location.latitude);
 //                    bundle.putDouble("longitude",lists.get(position).location.longitude);
@@ -214,15 +214,15 @@ public class MainActivity extends Activity implements BDLocationListener, OnGetP
 //                    bundle.putString("address",lists.get(position).address);
 //                    bundle.putString("phoneNum",lists.get(position).phoneNum);
                     startActivity(intent);
-                    Log.i("bbbbbbbbb",lists.get(position).name + " ");
-                    Log.i("bbbbbbbbb",lists.get(position).phoneNum + " ");
-                    Log.i("bbbbbbbbb",lists.get(position).address + " ");
-                    Log.i("bbbbbbbbb",lists.get(position).city + " ");
-                    Log.i("bbbbbbbbb",lists.get(position).uid + " ");
-                    Log.i("bbbbbbbbb",lists.get(position).hasCaterDetails + " ");
-                    Log.i("bbbbbbbbb",lists.get(position).isPano + " ");
-                    Log.i("bbbbbbbbb",lists.get(position).type + " ");
-                    Log.i("bbbbbbbbb",lists.get(position).location.latitude + " ");
+                    Log.i("bbbbbbbbb", lists.get(position).name + " ");
+                    Log.i("bbbbbbbbb", lists.get(position).phoneNum + " ");
+                    Log.i("bbbbbbbbb", lists.get(position).address + " ");
+                    Log.i("bbbbbbbbb", lists.get(position).city + " ");
+                    Log.i("bbbbbbbbb", lists.get(position).uid + " ");
+                    Log.i("bbbbbbbbb", lists.get(position).hasCaterDetails + " ");
+                    Log.i("bbbbbbbbb", lists.get(position).isPano + " ");
+                    Log.i("bbbbbbbbb", lists.get(position).type + " ");
+                    Log.i("bbbbbbbbb", lists.get(position).location.latitude + " ");
                 }
             });
             totalBank.setText("周边总共有" + poiResult.getAllPoi().size() + "个网点信息");
@@ -241,8 +241,8 @@ public class MainActivity extends Activity implements BDLocationListener, OnGetP
             Toast.makeText(MainActivity.this, "银行",
                     Toast.LENGTH_SHORT).show();
         } else {// 正常返回结果的时候，此处可以获得很多相关信息
-            if (view == null){
-                view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.map_item,null);
+            if (view == null) {
+                view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.map_item, null);
                 TextView tv = (TextView) view.findViewById(R.id.my_postion);
                 tv.setText(poiDetailResult.getName());
                 tv.setTextColor(Color.RED);
@@ -251,9 +251,9 @@ public class MainActivity extends Activity implements BDLocationListener, OnGetP
                 mapView.addView(view, params);
                 //设置点击mark，listview滚动到相应的网点
                 myAdapter.notifyDataSetChanged();
-            }else {
+            } else {
                 mapView.removeView(view);
-                view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.map_item,null);
+                view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.map_item, null);
                 TextView tv = (TextView) view.findViewById(R.id.my_postion);
                 tv.setText(poiDetailResult.getName());
                 tv.setTextColor(Color.RED);

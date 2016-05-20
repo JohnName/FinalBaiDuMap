@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.baidu.mapapi.map.MapView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <host.msr.finalbaidumap.WrapSlidingDrawer
+        android:id="@+id/slidingdrawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:content="@+id/content"
+        android:handle="@+id/handle"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@id/handle"
+            android:layout_width="match_parent"
+            android:layout_height="44dip"
+            android:src="@mipmap/ic_launcher" />
+
+
+        <LinearLayout
+            android:id="@id/content"
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@+id/listview_"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <!--<LinearLayout-->
+        <!--android:id="@id/content"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical"-->
+        <!--android:background="#ffffff">-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/tv"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center_vertical|center_horizontal"-->
+        <!--android:text="这是一个滑动式抽屉的示例"-->
+        <!--android:textColor="#000000"-->
+        <!--android:textSize="18px"-->
+        <!--android:textStyle="bold" />-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="这是一个滑动式抽屉的示例" />-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="这是一个滑动式抽屉的示例" />-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="这是一个滑动式抽屉的示例" />-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="这是一个滑动式抽屉的示例" />-->
+        <!--</LinearLayout>-->
+
+    </host.msr.finalbaidumap.WrapSlidingDrawer>
+</FrameLayout>
